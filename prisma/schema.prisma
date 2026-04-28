@@ -1,0 +1,45 @@
+// prisma/schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String    @id @default(cuid())
+  email     String    @unique
+  name      String?
+  comments  Comment[]
+  createdAt DateTime  @default(now())
+}
+
+model CamperModel {
+  id          String    @id @default(cuid())
+  name        String
+  description String
+  pricePerDay Float
+  imageUrl    String?
+  comments    Comment[]
+  createdAt   DateTime  @default(now())
+}
+
+model Comment {
+  id            String      @id @default(cuid())
+  content       String
+  userId        String
+  user          User        @relation(fields: [userId], references: [id])
+  camperModelId String
+  camperModel   CamperModel @relation(fields: [camperModelId], references: [id])
+}
+
+model ContactRequest {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  message   String
+  createdAt DateTime @default(now())
+}

@@ -1,0 +1,17 @@
+/* src/app/globals.css */
+@import "tailwindcss"; /* Esta es la nueva forma en v4 */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Tu configuración de fondo oscuro */
+:root {
+  --background: #0a0a0b;
+  --foreground: #ffffff;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+}

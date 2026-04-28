@@ -1,0 +1,48 @@
+{
+  "name": "duna-camper-web",
+  "version": "1.0.0",
+  "description": "��#\u0000 \u0000I\u0000A\u00006\u0000-\u0000-\u0000-\u0000P\u0000r\u0000o\u0000j\u0000e\u0000c\u0000t\u0000e\u0000-\u0000M\u0000V\u0000C\u0000-\u0000a\u0000m\u0000b\u0000-\u0000C\u0000R\u0000U\u0000D\u0000-\u0000i\u0000-\u0000a\u0000u\u0000t\u0000h\u0000\r\u0000 \u0000",
+  "main": "index.js",
+  "type": "module",
+  "prisma": {
+    "seed": "node prisma/seed.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "next dev",
+    "db:seed": "npx prisma db seed"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Joel-Vegas-Fpllefia/IA6---Projecte-MVC-amb-CRUD-i-auth.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Joel-Vegas-Fpllefia/IA6---Projecte-MVC-amb-CRUD-i-auth/issues"
+  },
+  "homepage": "https://github.com/Joel-Vegas-Fpllefia/IA6---Projecte-MVC-amb-CRUD-i-auth#readme",
+  "dependencies": {
+    "@prisma/adapter-pg": "^7.8.0",
+    "@prisma/client": "^5.22.0",
+    "@tailwindcss/postcss": "^4.2.4",
+    "dotenv": "^17.4.2",
+    "next": "^16.2.4",
+    "pg": "^8.20.0",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5"
+  },
+  "devDependencies": {
+    "@types/node": "^25.6.0",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "autoprefixer": "^10.5.0",
+    "eslint": "^9.39.4",
+    "eslint-config-next": "^16.2.4",
+    "postcss": "^8.5.12",
+    "prisma": "^5.22.0",
+    "tailwindcss": "^4.2.4",
+    "typescript": "^6.0.3"
+  }
+}
