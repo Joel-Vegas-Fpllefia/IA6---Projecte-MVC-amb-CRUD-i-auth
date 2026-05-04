@@ -1,5 +1,6 @@
 import { getAllCampers } from "../lib/camperService";
 import Link from "next/link";
+export const dynamic = "force-dynamic";
 
 export default async function HomePage() {
   const campers = await getAllCampers();
