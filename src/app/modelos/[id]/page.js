@@ -1,6 +1,7 @@
 import { getCamperById } from "../../../lib/camperService";
 import { notFound } from "next/navigation";
-
+export const dynamic = 'force-dynamic';
+export const runtime = 'nodejs';
 export default async function CamperDetailPage({ params }) {
   const { id } = await params;
   const camper = await getCamperById(id);
