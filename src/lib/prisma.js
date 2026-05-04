@@ -5,7 +5,8 @@ const globalForPrisma = global;
 export const prisma =
   globalForPrisma.prisma ||
   new PrismaClient({
-    // Forzamos a Prisma a leer la URL directamente aquí
+    // Obligamos a usar el motor directo, saltándonos cualquier detección de Proxy
+    engineType: 'binary', 
     datasources: {
       db: {
         url: process.env.DATABASE_URL,
