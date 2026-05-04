@@ -8,6 +8,10 @@
     "seed": "node prisma/seed.js"
   },
   "scripts": {
+    "dev": "next dev",
+    "build": "prisma generate && next build",
+    "start": "next start",
+    "lint": "next lint",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "next dev",
     "db:seed": "npx prisma db seed"
