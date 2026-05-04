@@ -9,27 +9,16 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "prisma generate && next build",
+    "build": "prisma generate --no-engine && next build",
     "start": "next start",
     "lint": "next lint",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "next dev",
     "db:seed": "npx prisma db seed"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Joel-Vegas-Fpllefia/IA6---Projecte-MVC-amb-CRUD-i-auth.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Joel-Vegas-Fpllefia/IA6---Projecte-MVC-amb-CRUD-i-auth/issues"
-  },
-  "homepage": "https://github.com/Joel-Vegas-Fpllefia/IA6---Projecte-MVC-amb-CRUD-i-auth#readme",
   "dependencies": {
     "@prisma/adapter-pg": "^7.8.0",
     "@prisma/client": "^5.22.0",
+    "@prisma/config": "^7.8.0",
     "@tailwindcss/postcss": "^4.2.4",
     "dotenv": "^17.4.2",
     "next": "^16.2.4",
@@ -48,5 +37,16 @@
     "prisma": "^5.22.0",
     "tailwindcss": "^4.2.4",
     "typescript": "^6.0.3"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Joel-Vegas-Fpllefia/IA6---Projecte-MVC-amb-CRUD-i-auth.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Joel-Vegas-Fpllefia/IA6---Projecte-MVC-amb-CRUD-i-auth/issues"
+  },
+  "homepage": "https://github.com/Joel-Vegas-Fpllefia/IA6---Projecte-MVC-amb-CRUD-i-auth#readme"
 }
