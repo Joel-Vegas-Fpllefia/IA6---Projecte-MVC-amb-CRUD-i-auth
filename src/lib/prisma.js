@@ -1,14 +1,10 @@
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient } from '@prisma/client'
 
-const globalForPrisma = global;
+const globalForPrisma = globalThis
 
-export const prisma =
-  globalForPrisma.prisma ||
-  new PrismaClient({
-    // En la v7, esto ayuda a evitar fallos de conexión en el despliegue
-    datasourceUrl: process.env.DATABASE_URL,
-  });
+// IMPORTANTE: No añadas nada dentro de PrismaClient()
+export const prisma = globalForPrisma.prisma ?? new PrismaClient()
 
-if (process.env.NODE_ENV !== "production") globalForPrisma.prisma = prisma;
+if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = prisma
 
-export default prisma;
+export default prisma
