@@ -1,31 +1,30 @@
-// src/app/layout.js
+import Link from "next/link";
 import "./globals.css";
-
-export const metadata = {
-  title: "Duna Camper | Alquiler de furgonetas",
-  description: "Encuentra la camper de tus sueños para tu próxima aventura.",
-};
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="es">
-      <body className="antialiased bg-slate-50 text-slate-900">
-        <nav className="border-b bg-white p-4">
-          <div className="max-w-7xl mx-auto flex justify-between items-center">
-            <span className="text-2xl font-bold text-orange-600">
-              Duna Camper
-            </span>
-            <div className="space-x-6 font-medium">
-              <a href="/" className="hover:text-orange-600">
-                Inicio
-              </a>
-              <a href="#modelos" className="hover:text-orange-600">
-                Modelos
-              </a>
-              <a href="#contacto" className="hover:text-orange-600">
-                Contacto
-              </a>
-            </div>
+    <html lang="es" className="scroll-smooth">
+      <body className="font-sans italic-none">
+        <nav className="fixed top-0 w-full z-50 mix-blend-difference py-8 px-10 flex justify-between items-center text-white">
+          <Link
+            href="/"
+            className="text-xl font-medium tracking-tighter uppercase"
+          >
+            Duna<span className="font-light opacity-50">Camper</span>
+          </Link>
+          <div className="flex gap-12 text-[10px] uppercase tracking-[0.3em] font-medium">
+            <Link
+              href="#modelos"
+              className="hover:opacity-50 transition-opacity"
+            >
+              Flota
+            </Link>
+            <Link
+              href="/contacto"
+              className="hover:opacity-50 transition-opacity"
+            >
+              Contacto
+            </Link>
           </div>
         </nav>
         {children}

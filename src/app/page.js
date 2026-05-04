@@ -2,64 +2,73 @@ import { getAllCampers } from "../lib/camperService";
 import Link from "next/link";
 
 export default async function HomePage() {
-  // 1. Fetch de datos (Server Side)
   const campers = await getAllCampers();
 
   return (
     <main>
-      {/* Sección Hero */}
-      <section className="bg-orange-600 text-white py-20 px-4 text-center">
-        <h1 className="text-5xl font-extrabold mb-4">Libertad sobre ruedas</h1>
-        <p className="text-xl opacity-90 max-w-2xl mx-auto">
-          Alquila las mejores campers totalmente equipadas para tu próximo
-          viaje.
-        </p>
+      {/* HERO: Impacto visual puro */}
+      <section className="h-screen relative flex items-center justify-center bg-zinc-900 overflow-hidden">
+        <div className="absolute inset-0 opacity-60">
+          <img
+            src="https://images.unsplash.com/photo-1523987355523-c7b5b0dd90a7?auto=format&fit=crop&q=80"
+            className="w-full h-full object-cover"
+            alt="Hero"
+          />
+        </div>
+        <div className="relative text-center text-white px-6">
+          <h1 className="text-[12vw] font-light leading-none tracking-tighter mb-8">
+            NOMAD<span className="italic font-serif">spirit</span>
+          </h1>
+          <p className="text-sm uppercase tracking-[0.5em] opacity-80">
+            Explora sin dejar rastro
+          </p>
+        </div>
       </section>
 
-      {/* Sección de Modelos (El catálogo funcional) */}
-      <section id="modelos" className="max-w-7xl mx-auto py-16 px-4">
-        <h2 className="text-3xl font-bold mb-8 text-center">Nuestra Flota</h2>
+      {/* CATÁLOGO: Grid Limpio */}
+      <section id="modelos" className="max-w-[1400px] mx-auto py-32 px-10">
+        <header className="mb-24 flex justify-between items-end">
+          <h2 className="text-4xl font-light tracking-tight">
+            Nuestra Selección
+          </h2>
+          <span className="text-[10px] uppercase tracking-widest opacity-40 italic">
+            Scroll para descubrir —
+          </span>
+        </header>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-20">
           {campers.map((camper) => (
-            <div
+            <Link
+              href={`/modelos/${camper.id}`}
               key={camper.id}
-              className="bg-white rounded-xl shadow-sm border overflow-hidden hover:shadow-lg transition-shadow"
+              className="group"
             >
-              <div className="aspect-video bg-slate-200 relative">
-                {camper.imageUrl ? (
-                  <img
-                    src={camper.imageUrl}
-                    alt={camper.name}
-                    className="w-full h-full object-cover"
-                  />
-                ) : (
-                  <div className="flex items-center justify-center h-full text-slate-400">
-                    Sin imagen
-                  </div>
-                )}
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-2">{camper.name}</h3>
-                <p className="text-slate-600 text-sm mb-4 line-clamp-2">
-                  {camper.description}
-                </p>
-                <div className="flex justify-between items-center border-t pt-4">
-                  <span className="text-lg font-bold">
-                    {camper.pricePerDay}€{" "}
-                    <span className="text-sm font-normal text-slate-500">
-                      / día
-                    </span>
-                  </span>
-                  <Link href={`/modelos/${camper.id}`} className="block group">
-                    {/* Todo el contenido de la tarjeta aquí */}
-                    <button className="bg-slate-900 text-white px-4 py-2 rounded-lg text-sm group-hover:bg-orange-600 transition-colors">
-                      Ver detalles
-                    </button>
-                  </Link>
+              <div className="overflow-hidden bg-[#f5f5f7] aspect-[4/5] relative">
+                <img
+                  src={camper.imageUrl}
+                  alt={camper.name}
+                  className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+                />
+                <div className="absolute bottom-10 left-10 text-white">
+                  <p className="text-xs uppercase tracking-widest mb-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                    Ver detalle
+                  </p>
                 </div>
               </div>
-            </div>
+              <div className="mt-8 flex justify-between items-start">
+                <div>
+                  <h3 className="text-2xl font-light tracking-tight">
+                    {camper.name}
+                  </h3>
+                  <p className="text-sm text-zinc-400 mt-2">
+                    {camper.pricePerDay}€ / día
+                  </p>
+                </div>
+                <span className="text-[10px] uppercase tracking-widest border border-zinc-200 px-3 py-1 rounded-full">
+                  Disponible
+                </span>
+              </div>
+            </Link>
           ))}
         </div>
       </section>
