@@ -1,14 +1,15 @@
-// src/lib/camperService.js
-import { PrismaClient } from "@prisma/client";
+// ❌ BORRA ESTO:
+// import { PrismaClient } from "@prisma/client";
+// const prisma = new PrismaClient();
 
-const prisma = new PrismaClient();
+// ✅ SUSTITÚYELO POR ESTO:
+import prisma from "./prisma";
 
-// Esta ya la tenías para la Home
+// El resto del código se queda igual
 export async function getAllCampers() {
   return await prisma.camperModel.findMany();
 }
 
-// ESTA ES LA QUE TE FALTA O TIENE UN ERROR DE NOMBRE
 export async function getCamperById(id) {
   try {
     return await prisma.camperModel.findUnique({

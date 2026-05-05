@@ -1,8 +1,9 @@
 import { getAllCampers } from "../lib/camperService";
 import Link from "next/link";
-export const dynamic = 'force-dynamic';
-export const runtime = 'nodejs';
-export const fetchCache = 'force-no-store'; // Añade esto también
+export const dynamic = "force-dynamic";
+export const fetchCache = "force-no-store"; // Añade esto también
+export const runtime = "nodejs";
+
 export default async function HomePage() {
   const campers = await getAllCampers();
 
