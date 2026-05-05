@@ -1,6 +1,7 @@
 import { PrismaClient } from "@prisma/client";
 
 const globalForPrisma = global;
+console.log("DATABASE_URL:", process.env.DATABASE_URL?.slice(0, 30));
 
 export const prisma =
   globalForPrisma.prisma ||
